@@ -22,12 +22,31 @@ const loadCityWeather = async (cityName) => {
   try {
     const currCityWeatherData = await getWeatherData(cityName);
     console.log(currCityWeatherData);
+    changeInterface(currCityWeatherData);
   } catch (err) {
+    console.log(err);
     alert("There was an error getting the data");
   }
 
   buttonText.style.display = "block";
   loadingAnimation.style.display = "none";
+};
+
+const changeInterface = (weatherData) => {
+  switch (weatherData.weather.main) {
+    case "Clouds":
+      backgroundComponent.style.backgroundImage = SVG_BACKGROUNDS.cloudy;
+      break;
+    case "Rain":
+      backgroundComponent.style.backgroundImage = SVG_BACKGROUNDS.rainy;
+      break;
+    case "Snow":
+      backgroundComponent.style.backgroundImage = SVG_BACKGROUNDS.snowy;
+      break;
+    default:
+      backgroundComponent.style.backgroundImage = SVG_BACKGROUNDS.default;
+      break;
+  }
 };
 
 searchButton.addEventListener("click", getCityInputWeatherData);
