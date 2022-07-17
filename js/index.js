@@ -61,15 +61,17 @@ const temperature = document.querySelector("#temperature");
 temperature.addEventListener("click", toggleSelectedUnit);
 
 const cityName = document.querySelector("#cityName");
-const weatherImage = document.querySelector("#cityName");
+const weatherImage = document.querySelector("#weatherImage");
 
 const showWeatherInfo = (weatherData) => {
+  console.log(weatherData);
   let temp = weatherData.temperature;
   if (currSelectedUnit === "f") {
     temp = convertToTemperatureUnit("f", weatherData.temperature);
   }
   const converttedTemp = temp + "º" + currSelectedUnit.toUpperCase();
   temperature.innerHTML = converttedTemp;
+  weatherImage.src = weatherData.gif;
 
   cityName.innerHTML = weatherData.cityName;
   weatherInfoContainer.style.transform = "scaleY(1)";

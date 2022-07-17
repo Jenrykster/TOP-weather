@@ -77,20 +77,19 @@ footer {
 }
 
 #weatherInfo {
-  display: flex;
-  margin-top: 10vh;
   transform: scaleY(0);
+  display: flex;
   transition: 0.2s ease-in-out all;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
 #weatherImage {
-  width: 50%;
+  display: flex;
+  height: auto;
+  width: 20vw;
+  aspect-ratio: 1/1;
   border-radius: 3em;
-  opacity: 0;
-  min-width: 200px;
-  min-height: 200px;
   background-color: red;
 }
