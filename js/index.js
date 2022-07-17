@@ -1,6 +1,2 @@
-const test = async () => {
-  const data = await getWeatherData("London");
-  console.log(data);
-};
-
-test();
+const backgroundComponent = document.querySelector("#mainContainer");
+backgroundComponent.style.backgroundImage = SVG_BACKGROUNDS.default;
